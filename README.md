@@ -1,3 +1,5 @@
+READ changelog.txt for the change list
+
 Welcome to a quick coding proficiency test. We won't keep you long!
 
 You've been added to a project with this partially finished platformer ("GRAMMAR BOY!"), and you've been asked to quickly whip it into shape (use the SampleScene scene)
