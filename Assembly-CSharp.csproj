@@ -53,7 +53,11 @@
     <UnityVersion>2020.3.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\TextMeshProLocalizer.cs" />
+    <Compile Include="Assets\DeathTracker.cs" />
     <Compile Include="Assets\Scripts\Mechanics\SpawnPoint.cs" />
+    <Compile Include="Assets\TextLocalizer.cs" />
+    <Compile Include="Assets\Adjectives.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerEnemyCollision.cs" />
     <Compile Include="Assets\Scripts\Core\HeapQueue.cs" />
     <Compile Include="Assets\Scripts\View\ParallaxLayer.cs" />
@@ -76,6 +80,7 @@
     <Compile Include="Assets\Scripts\UI\MainUIController.cs" />
     <Compile Include="Assets\Scripts\Mechanics\AnimationController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerStopJump.cs" />
+    <Compile Include="Assets\Localizer.cs" />
     <Compile Include="Assets\Scripts\Core\Simulation.cs" />
     <Compile Include="Assets\Mod Assets\Mod Resources\Scripts\Platformer\Jiggler.cs" />
     <Compile Include="Assets\Scripts\Mechanics\PatrolPath.Mover.cs" />
@@ -85,6 +90,7 @@
     <Compile Include="Assets\Scripts\Mechanics\DeathZone.cs" />
     <Compile Include="Assets\Mod Assets\Mod Resources\Scripts\Platformer\PlatformerSpeedPad.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerJumped.cs" />
+    <Compile Include="Assets\HighScore.cs" />
     <Compile Include="Assets\Mod Assets\Mod Resources\Scripts\Backend\TemplateEditorDetection.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerEnteredDeathZone.cs" />
     <Compile Include="Assets\Scripts\Core\Simulation.Event.cs" />
@@ -95,12 +101,6 @@
     <Compile Include="Assets\Scripts\UI\MetaGameController.cs" />
     <Compile Include="Assets\Scripts\Core\Simulation.InstanceRegister.cs" />
     <Compile Include="Assets\Scripts\Gameplay\HealthIsZero.cs" />
-    <Compile Include="Assets\DeathTracker.cs" />
-    <Compile Include="Assets\HighScore.cs" />
-    <Compile Include="Assets\Localizer.cs" />
-    <Compile Include="Assets\TextLocalizer.cs" />
-    <Compile Include="Assets\Adjectives.cs" />
-    <Compile Include="Assets\TextMeshProLocalizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
