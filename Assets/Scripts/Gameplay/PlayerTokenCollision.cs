@@ -18,6 +18,8 @@ namespace Platformer.Gameplay
 
         public override void Execute()
         {
+            //we picked up a token - let's say a random adjactive
+            player.Speak();
             AudioSource.PlayClipAtPoint(token.tokenCollectAudio, token.transform.position);
         }
     }

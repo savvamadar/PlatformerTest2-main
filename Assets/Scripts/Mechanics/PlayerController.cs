@@ -27,6 +27,9 @@ namespace Platformer.Mechanics
         /// </summary>
         public float jumpTakeOffSpeed = 7;
 
+        public float jumpCoyoteTime = 0.2f; //how much time the player has after being "ungrounded" to jump
+        private float jumpCoyoteTime_timeLastGrounded = 0f; //keeps track of when the last time the player was grounded
+
         public JumpState jumpState = JumpState.Grounded;
         private bool stopJump;
         /*internal new*/ public Collider2D collider2d;
@@ -51,10 +54,33 @@ namespace Platformer.Mechanics
             animator = GetComponent<Animator>();
         }
 
+        public TextMeshProLocalizer visual_speak; //the script used to display adjactives
+        public float speaking_time = 1.3f; //how long the player says the adjactive for
+
+        //called to say a random adjactive
+        public void Speak()
+        {
+            Speak(Adjectives.RandomAdjactive());
+        }
+
+        //called to say a specific string
+        public void Speak(string say)
+        {
+            visual_speak.localization_key = say;
+            visual_speak.default_value = say;
+
+            visual_speak.Display(speaking_time);
+        }
+
         protected override void Update()
         {
             if (controlEnabled)
             {
+                if (IsGrounded)
+                {
+                    //every frame update the last time we were touching the ground
+                    jumpCoyoteTime_timeLastGrounded = Time.timeSinceLevelLoad;
+                }
                 move.x = Input.GetAxis("Horizontal");
                 if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
                     jumpState = JumpState.PrepareToJump;
@@ -102,9 +128,16 @@ namespace Platformer.Mechanics
             }
         }
 
+        //checks the amount of time that has passed between now and the last time we were on the ground
+        //if it's less than or equal to the jumpCoyoteTime variable we return true indicating we can still jump
+        private bool CoyoteTimeCheck()
+        {
+            return (Time.timeSinceLevelLoad - jumpCoyoteTime_timeLastGrounded) <= jumpCoyoteTime;
+        }
+
         protected override void ComputeVelocity()
         {
-            if (jump && IsGrounded)
+            if (jump && (IsGrounded || CoyoteTimeCheck()))
             {
                 velocity.y = jumpTakeOffSpeed * model.jumpModifier;
                 jump = false;

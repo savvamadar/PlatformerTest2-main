@@ -14,6 +14,10 @@ namespace Platformer.Gameplay
         {
             var player = model.player;
             player.controlEnabled = true;
+
+            //the player just regained control of their character after spawning
+            //let's start their timer from this point
+            DeathTracker.StartTimer();
         }
     }
 }

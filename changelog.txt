@@ -1,0 +1,35 @@
+Modified PlayerController.cs:
+- Added variable 'jumpCoyoteTime'
+- Added variable 'jumpCoyoteTime_timeLastGrounded'
+- Added function 'CoyoteTimeCheck'
+- Added function 'Speak'
+- Added function 'Speak(string)'
+
+Modified EnablePlayerInput.cs:
+- Call 'DeathTracker.StartTimer'
+
+Modified PlayerDeath.cs:
+- Call 'DeathTracker.IncrementDeath'
+
+Modified PlayerEnteredVictoryZone.cs:
+- Call 'DeathTracker.PauseTimer'
+- Call 'HighScore.RecordScore'
+- Call 'HighScore.UpdateScores'
+- Call 'HighScore.InvokeMethod("OpenLeaderBoard", 0.2f)'
+- Call 'HighScore.InvokeMethod("ReloadLevel", 5.5f)'
+- Call 'model.player.Speak'
+
+Modified PlayerTokenCollision:
+- Call 'player.Speak'
+
+Created Adjectives.cs
+
+Created DeathTracker.cs
+
+Created HighScore.cs
+
+Created Localizer.cs
+
+Created TextLocalizer.cs
+
+Created TextMeshProLocalizer.cs
